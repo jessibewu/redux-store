@@ -1,3 +1,5 @@
+// reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state: (state, action) => newState
+
 import {
     UPDATE_PRODUCTS,
     UPDATE_CATEGORIES,
@@ -10,9 +12,18 @@ import {
     TOGGLE_CART
   } from "./actions";
   
-import { useReducer } from 'react';
+// import { useReducer } from 'react';
 
-  export const reducer = (state, action) => {
+const initialState = {
+  products: [],
+  categories: [],
+  currentCategory: '',
+  cart: [],
+  cartOpen: false
+};
+
+  // should only calculate the new state value based on the state & action arguments, must not do any asynchronous logic, calculate random values, or cause other "side effects"
+  export const reducer = (state = initialState, action) => {
     switch (action.type) {
       // if action type value is the value of `UPDATE_PRODUCTS`, return a new state object with an updated products array
       case UPDATE_PRODUCTS:
@@ -93,6 +104,6 @@ import { useReducer } from 'react';
 
   // used to help initialize our global state object and then provide us with the functionality for updating that state by automatically running it through our custom reducer() function. 
   //  Like a more in-depth way of using the useState() Hook we've used so much.
-  export function useProductReducer(initialState) {
-    return useReducer(reducer, initialState);
-  }
+  // export function useProductReducer(initialState) {
+  //   return useReducer(reducer, initialState);
+  // }

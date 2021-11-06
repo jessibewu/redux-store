@@ -6,7 +6,13 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+
+// import { setContext } from '@apollo/client/link/context';
+
+// importing redux store 
+import store from './utils/store';
+// put a <Provider> in JSX & pass the store as a prop
+import { Provider } from 'react-redux';
 
 import Home from './pages/Home';
 import Detail from './pages/Detail';
@@ -15,10 +21,10 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
 import OrderHistory from './pages/OrderHistory';
-// to make our global state available to all of our components
-import { StoreProvider } from "./utils/GlobalState";
-
 import Success from "./pages/Success";
+
+// to make our global state available to all of our components
+// import { StoreProvider } from "./utils/GlobalState";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,7 +51,7 @@ function App() {
       <Router>
         <div>
           {/* use <StoreProvider> to wrap all of the components. All the components between those JSX tags are considered the children of <StoreProvider>; that's why it was so important that we had ...props in the definition of the StoreProvider function! */}
-          <StoreProvider>
+          <Provider store={store}>
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -56,7 +62,7 @@ function App() {
             <Route exact path="/success" component={Success} />
             <Route component={NoMatch} />
           </Switch>
-          </StoreProvider>
+          </Provider>
         </div>
       </Router>
     </ApolloProvider>
