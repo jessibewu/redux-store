@@ -1,14 +1,17 @@
 import React from 'react';
-// will also update the global state to adjust item quantities here
-import { useStoreContext } from '../../utils/GlobalState';
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
+// import { useStoreContext } from '../../utils/GlobalState';
 
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
+// idb:
 import { idbPromise } from "../../utils/helpers";
+// redux: 
+import { useSelector, useDispatch } from 'react-redux';
 
 const CartItem = ({ item }) => {
-  // we only destructured the dispatch() function from the useStoreContext Hook, 
-  //  because the CartItem component has no need to read state
-  const [, dispatch] = useStoreContext();
+  // const [, dispatch] = useStoreContext();
+
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
 
   const removeFromCart = item => {
     dispatch({

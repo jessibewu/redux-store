@@ -3,7 +3,7 @@ import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import './style.css';
 // use the custom useStoreContext Hook to establish a state variable and the dispatch() function to update the state
-import { useStoreContext } from '../../utils/GlobalState';
+// import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 // idb:
 import { idbPromise } from "../../utils/helpers";
@@ -12,14 +12,19 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 // implement this new Hook to call QUERY_CHECKOUT
 import { useLazyQuery } from '@apollo/client';
+// redux: 
+import { useSelector, useDispatch } from 'react-redux';
 
 // use this stripePromise object to perform the checkout redirect
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
 
-  const [state, dispatch] = useStoreContext();
+  // const [state, dispatch] = useStoreContext();
 
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
+  
   // `data` variable will contain the checkout session, but only after the query is called with the getCheckout() function
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 

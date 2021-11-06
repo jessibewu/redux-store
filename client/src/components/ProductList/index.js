@@ -5,14 +5,20 @@ import ProductItem from '../ProductItem';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import spinner from '../../assets/spinner.gif';
 
-import { useStoreContext } from '../../utils/GlobalState';
-import { UPDATE_PRODUCTS } from '../../utils/actions';
+// import { useStoreContext } from '../../utils/GlobalState';
 
+import { UPDATE_PRODUCTS } from '../../utils/actions';
+// idb:
 import { idbPromise } from "../../utils/helpers";
+// redux: 
+import { useSelector, useDispatch } from 'react-redux';
 
 function ProductList() {
-  // retrieve current global state object and the dispatch() method to update state
-  const [state, dispatch] = useStoreContext();
+  // const [state, dispatch] = useStoreContext();
+
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
+  
   // destructure the currentCategory data from state object to use in the filterProducts() function
   const { currentCategory } = state;
 

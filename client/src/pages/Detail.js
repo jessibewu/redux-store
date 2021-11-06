@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
 import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
-
-import { useStoreContext } from "../utils/GlobalState";
-
+import Cart from '../components/Cart';
+import { idbPromise } from "../utils/helpers";
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -14,13 +12,17 @@ import {
   UPDATE_PRODUCTS,
 } from '../utils/actions';
 
-import Cart from '../components/Cart';
+// import { useStoreContext } from "../utils/GlobalState";
 
-import { idbPromise } from "../utils/helpers";
+// read/select data from the Redux store, and dispatch actions to the store from a component
+import { useSelector, useDispatch } from 'react-redux';
 
 function Detail() {
-  // getting the global state
-  const [state, dispatch] = useStoreContext();
+  // const [state, dispatch] = useStoreContext();
+
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
+
   // grab id from window.location
   const { id } = useParams();
   

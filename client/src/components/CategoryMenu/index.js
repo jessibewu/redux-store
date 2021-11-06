@@ -1,15 +1,21 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES } from '../../utils/queries';
-import { useStoreContext } from "../../utils/GlobalState";
+// import { useStoreContext } from "../../utils/GlobalState";
+
 // to use in dispatch calls
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
-
+// idb:
 import { idbPromise } from '../../utils/helpers';
+// redux: 
+import { useSelector, useDispatch } from 'react-redux';
 
 function CategoryMenu() {
-  // retrieve the current state from the global state object and the dispatch() method to update state
-  const [state, dispatch] = useStoreContext();
+  // const [state, dispatch] = useStoreContext();
+
+  const state = useSelector(state => state);
+  const dispatch = useDispatch();
+
   // destructure { categories } out of state (cuz that's what we'll need) so we can use it to provide to our returning JSX
   const { categories } = state;
   // state doesn't have data yet, we'll need to take the categoryData that returns from the useQuery() Hook and use the dispatch() method to set our global state
