@@ -1,7 +1,5 @@
 # Redux Store
 
-# Redux Shop
-
 ![badge](https://img.shields.io/badge/license-MIT-brightgreen)
 
   ## Description
