@@ -4,7 +4,7 @@
 
   ## Description
 
-A e-commerce platform utilizing Redux to help manage React states vs using React’s Context API like for most other e-commerce websites.
+An e-commerce platform utilizing Redux to help manage React states vs using React’s Context API like for most other e-commerce websites.
 
   Acceptance Criteria:
 
