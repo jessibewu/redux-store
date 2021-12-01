@@ -26,6 +26,7 @@ THEN I find that the app uses Redux instead of the Context API
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
+  - [Technologies Use](#technologies-used)
   - [License](#license)
   - [Credits](#credits)
 
@@ -56,6 +57,16 @@ THEN I find that the app uses Redux instead of the Context API
 
   ![Screenshot](./client/src/assets/screenshot.png) 
 
+  ## Technologies Used
+
+  - apollo-server-express
+  - bcrypt
+  - express
+  - graphql
+  - jsonwebtoken
+  - mongoose
+  - stripe
+  - nodemon
   ## License
   This application is covered by [MIT](https://opensource.org/licenses/MIT) license. 
   
