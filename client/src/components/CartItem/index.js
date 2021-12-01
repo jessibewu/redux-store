@@ -5,11 +5,15 @@ import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 // idb:
 import { idbPromise } from "../../utils/helpers";
 // redux: 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const CartItem = ({ item }) => {
   // const [, dispatch] = useStoreContext();
 
+  useSelector((state) => {
+    return state
+  });
+  
   const dispatch = useDispatch();
 
   const removeFromCart = item => {

@@ -3,6 +3,9 @@
 ![badge](https://img.shields.io/badge/license-MIT-brightgreen)
 
   ## Description
+
+A e-commerce platform utilizing Redux to help manage React states vs using React’s Context API like for most other e-commerce websites.
+
   Acceptance Criteria:
 
   ```
@@ -27,7 +30,11 @@ THEN I find that the app uses Redux instead of the Context API
   - [Credits](#credits)
 
   ## Installation
-  `npm i` 
+  Run `npm i`
+
+  File Structure Overview:
+
+  <img src="./client/src/assets/file-structure.png" width="250">
 
   ## Usage
 
